@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirin & Anjana Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #f5f0e8;
+  font-family: 'Cormorant Garamond', serif;
+  color: #2d3a2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Card */
+.card {
+  background: #faf7f2;
+  max-width: 480px;
+  width: 100%;
+  border: 1px solid #d9d0c0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.top-bar {
+  background: #3d5445;
+  height: 80px;
+  width: 60px;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #5a6b5c;
+  margin-bottom: 2rem;
+}
+
+.name {
+  font-size: 52px;
+  font-style: italic;
+}
+
+.ampersand {
+  font-size: 40px;
+  color: #c49a28;
+  margin: 5px 0;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #5a6b5c;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+.divider {
+  width: 50px;
+  height: 2px;
+  background: #c49a28;
+  margin: 20px auto;
+}
+
+.event {
+  margin: 25px 0;
+}
+
+.label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.date {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+}
+
+.time {
+  font-size: 14px;
+  color: #5a6b5c;
+}
+
+.venue {
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.small {
+  font-size: 12px;
+  color: #7a8c7b;
+}
+
+/* Map button */
+.map-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border: 1px solid #c49a28;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #2d3a2e;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.map-btn:hover {
+  background: #c49a28;
+  color: white;
+}
+
+/* Music button */
+#musicBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #c49a28;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Floating leaves */
+.leaves span {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: rgba(196,154,40,0.4);
+  border-radius: 50%;
+  animation: float 10s linear infinite;
+}
+
+.leaves span:nth-child(1){left:10%;}
+.leaves span:nth-child(2){left:30%;}
+.leaves span:nth-child(3){left:50%;}
+.leaves span:nth-child(4){left:70%;}
+.leaves span:nth-child(5){left:90%;}
+
+@keyframes float {
+  0% { top:100%; opacity:0; }
+  20% { opacity:1; }
+  100% { top:-10%; transform:translateX(40px); opacity:0; }
+}
+
+.footer {
+  text-align: center;
+  font-family: 'Cinzel';
+  font-size: 10px;
+  padding: 20px;
+  color: #888;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn">♪ Play Music</button>
+
+<!-- Floating -->
+<div class="leaves">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="card">
+
+<div class="top-bar"></div>
+
+<div class="content">
+
+<p class="eyebrow">
+YOUR PRESENCE IS REQUESTED<br>
+TO CELEBRATE THE WEDDING OF
+</p>
+
+<div class="name">Sirin</div>
+<div class="ampersand">&</div>
+<div class="name">Anjana</div>
+
+<p class="tagline">Come celebrate with us!</p>
+
+<div class="divider"></div>
+
+<div class="event">
+<div class="label">WEDDING CEREMONY</div>
+<div class="date">May 13, 2026</div>
+<div class="time">10:00 – 10:30 AM</div>
+<div class="venue">
+Rashaj Royale Convention Centre<br>
+<span class="small">Trivandrum</span>
+</div>
+<a class="map-btn" href="https://maps.google.com" target="_blank">View Location</a>
+</div>
+
+<div class="divider"></div>
+
+<div class="event">
+<div class="label">RECEPTION</div>
+<div class="date">May 16, 2026</div>
+<div class="time">4:00 – 9:00 PM</div>
+<div class="venue">
+Kalleri Auditorium<br>
+<span class="small">Calicut</span>
+</div>
+<a class="map-btn" href="https://maps.google.com" target="_blank">View Location</a>
+</div>
+
+</div>
+
+<div class="footer">WITH LOVE · SIRIN & ANJANA</div>
+
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+window.addEventListener("load", () => {
+  music.play().catch(() => {
+    btn.style.display = "block";
+  });
+});
+
+btn.onclick = () => {
+  music.play();
+  btn.innerText = "♪ Playing";
+};
+</script>
+
+</body>
+</html>
