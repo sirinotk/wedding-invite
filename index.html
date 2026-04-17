@@ -16,13 +16,12 @@ body {
   color: #2d3a2e;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   padding: 20px;
-  overflow: hidden;
 }
 
-/* Card Animation */
+/* CARD */
 .card {
   background: #faf7f2;
   max-width: 480px;
@@ -31,24 +30,15 @@ body {
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
   border-radius: 12px;
   overflow: hidden;
-  animation: slideUp 1.2s ease-out;
+
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease;
+
+  margin: 40px 0;
 }
 
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(60px) scale(0.98);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.01);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Content stagger animation */
+/* CONTENT ANIMATION */
 .content > * {
   opacity: 0;
   transform: translateY(20px);
@@ -163,7 +153,7 @@ body {
   color: white;
 }
 
-/* Music Button */
+/* MUSIC BUTTON */
 #musicBtn {
   position: fixed;
   bottom: 20px;
@@ -177,7 +167,7 @@ body {
   display: none;
 }
 
-/* Floating animation */
+/* FLOATING */
 .leaves span {
   position: fixed;
   width: 10px;
@@ -211,11 +201,13 @@ body {
 
 <body>
 
+<!-- MUSIC -->
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 <button id="musicBtn">♪ Play Music</button>
 
+<!-- FLOATING -->
 <div class="leaves">
   <span></span><span></span><span></span><span></span><span></span>
 </div>
@@ -269,20 +261,27 @@ Kalleri Auditorium<br>
 
 </div>
 
+<!-- SCRIPT (IMPORTANT FOR SLIDE) -->
 <script>
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-
 window.addEventListener("load", () => {
+  const card = document.querySelector(".card");
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicBtn");
+
+  setTimeout(() => {
+    card.style.opacity = "1";
+    card.style.transform = "translateY(0)";
+  }, 300);
+
   music.play().catch(() => {
     btn.style.display = "block";
   });
-});
 
-btn.onclick = () => {
-  music.play();
-  btn.innerText = "♪ Playing";
-};
+  btn.onclick = () => {
+    music.play();
+    btn.innerText = "♪ Playing";
+  };
+});
 </script>
 
 </body>
